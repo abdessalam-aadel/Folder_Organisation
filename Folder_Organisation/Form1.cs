@@ -70,6 +70,11 @@ namespace Folder_Organisation
                 if (!Directory.Exists(R85))
                     Directory.CreateDirectory(R85);
 
+                // Creat Folder Probleme
+                string prb = pathDesktop + @"\Result\PRB";
+                if (!Directory.Exists(prb))
+                    Directory.CreateDirectory(prb);
+
                 // Get all folder
                 string[] allFolder = Directory.GetDirectories(txtBoxLoad.Text);
 
@@ -149,6 +154,33 @@ namespace Folder_Organisation
                         {
                             // Copying the folder into Result folder
                             CopyDirectory(folderpath, Result + @"\" + difolder.Name, true);
+                            creatCopy68 = "";
+                            creatCopy85 = "";
+                        }
+
+                        // Check if the folder : IF68 && IF85E those not existe
+                        else if ( !Directory.Exists(folderpath + @"\IF68") && !Directory.Exists(folderpath + @"\IF85E") )
+                        {
+                            // Copying the folder into Result folder
+                            CopyDirectory(folderpath, prb + @"\" + difolder.Name, true);
+                            creatCopy68 = "";
+                            creatCopy85 = "";
+                        }
+
+                        // Check if the folder : IF68 && IF85E those not existe
+                        else if (!Directory.Exists(folderpath + @"\IF68"))
+                        {
+                            // Copying the folder into Result folder
+                            CopyDirectory(folderpath, prb + @"\" + difolder.Name, true);
+                            creatCopy68 = "";
+                            creatCopy85 = "";
+                        }
+
+                        // Check if the folder : IF68 && IF85E those not existe
+                        else if (!Directory.Exists(folderpath + @"\IF85E"))
+                        {
+                            // Copying the folder into Result folder
+                            CopyDirectory(folderpath, prb + @"\" + difolder.Name, true);
                             creatCopy68 = "";
                             creatCopy85 = "";
                         }
