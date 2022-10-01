@@ -44,13 +44,15 @@ namespace Folder_Organisation
             {
                 // Clear the text Done!
                 txtDone.Text = "";
-                Cursor = Cursors.WaitCursor;
 
                 // check if the user has been selected a folder
                 // if not return ..
-                if ( txtBoxLoad.Text == "" )
+                if ( txtBoxLoad.Text == "" || !Directory.Exists(path: txtBoxLoad.Text))
                     return;
-                
+
+                // chage the cursor to wait cursor ...
+                Cursor = Cursors.WaitCursor;
+
                 // get the path of Desktop
                 string pathDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
